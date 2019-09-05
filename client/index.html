@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hey</title>
+</head>
+<body>
+<h1 class="header">JSON</h1>
+<form onsubmit="addLion()">
+    <input type="text" placeholder="Name" name="lion" />
+    <input type="submit" value="add lion" />
+</form>
+<form onsubmit="updateLion()">
+    <input type="number" placeholder="Id" name="lionId" />
+    <input type="submit" value="update lion by id" />
+</form>
+<button onclick="getLions()">Get lions</button>
+
+<form onsubmit="addTiger()">
+    <input type="text" placeholder="Name" name="tiger" />
+    <input type="submit" value="add tiger" />
+</form>
+<form onsubmit="updateTiger()">
+    <input type="number" placeholder="Id" name="tigerId" />
+    <input type="submit" value="update by id" />
+</form>
+<button onclick="getTigers()">Get tigers</button>
+<script>
+    function getLions() {
+        const header = document.querySelector('.header');
+        fetch(`lions/`)
+            .then(function(resp) {
+            return resp.json()
+            })
+            .then(function(data) {
+                console.log(data);
+                header.innerHTML = JSON.stringify(data);
+            })
+    }
+
+    function addLion() {
+        const name = document.querySelector('input[name="lion"]').value;
+
+        fetch('lions/', {
+            method: 'post',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({name: name})
+        })
+            .then(resp =>resp.json())
+    }
+
+    function updateLion() {
+        const id = document.querySelector('input[name="lionId"]').value;
+        console.log(id);
+        const newName = document.querySelector('input[name="lion"]').value;
+        console.log(newName);
+
+        fetch(`lions/${id}`, {
+            method: 'put',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({name: newName})
+        })
+            .then(resp =>resp.json())
+    }
+
+    function getTigers() {
+        const header = document.querySelector('.header');
+        fetch(`tigers/`)
+            .then(function(resp) {
+                return resp.json()
+            })
+            .then(function(data) {
+                header.innerHTML = JSON.stringify(data);
+            })
+    }
+
+    function addTiger() {
+        const name = document.querySelector('input[name="tiger"]').value;
+        console.log(name);
+
+        fetch('tigers/', {
+            method: 'post',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({name: name})
+        })
+            .then(resp =>resp.json())
+    }
+
+    function updateTiger() {
+        const id = document.querySelector('input[name="tigerId"]').value;
+        console.log(id);
+        const newName = document.querySelector('input[name="tiger"]').value;
+        console.log(newName);
+
+        fetch(`tigers/${id}`, {
+            method: 'put',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({name: newName})
+        })
+            .then(resp =>resp.json())
+    }
+</script>
+</body>
+</html>
