@@ -4,7 +4,7 @@ const _ = require('lodash');
 exports.params = function(req, res, next, id) {
     Order.findById(id)
         .then(function(order) {
-            if (!post) {
+            if (!order) {
                 next(new Error('No order with that id'));
             } else {
                 req.order = order;
@@ -32,7 +32,7 @@ exports.getOne = function(req, res, next) {
 exports.put = function(req, res, next) {
     const order = req.order;
 
-    const update = req.order;
+    const update = req.body;
 
     _.merge(order, update);
 
