@@ -8,9 +8,9 @@ brew services start mongodb/brew/mongodb-community@4.0
 npm run start
 
 # Then run
-# in mongoose.connect('mongodb://localhost/<yourDB>', { useNewUrlParser: true }); <yourDB> is your database name. 
+# in mongoose.connect('mongodb://localhost/yourDB', { useNewUrlParser: true }); yourDB is your database name. 
 mongo
-use <yourDB>
+use yourDB
 
 
 
