@@ -4,7 +4,7 @@ const api = require('./api/api');
 const err = require('./middleware/err');
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost/orderDB', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost/testDB', { useNewUrlParser: true });
 
 require('./middleware/appMiddleware')(app);
 // app.use(express.static('client'));

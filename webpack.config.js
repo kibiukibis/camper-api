@@ -9,7 +9,8 @@ module.exports = {
     output: {
         path: path.join(__dirname, 'dist'),
         filename: "[name].js",
-        globalObject: 'this'
+        globalObject: 'this',
+        publicPath: '/'
     },
     plugins: [htmlPlugin],
     module: {
@@ -34,8 +35,19 @@ module.exports = {
     },
     devServer: {
         contentBase: path.join(__dirname, 'dist/'),
+        proxy: {
+            "/api/*":{
+                target:"http://localhost:3000/",
+                secure:"false"
+            },
+            "/orders" :{
+                target:"http://localhost:3000/",
+                secure:"false"
+            }
+        },
         port: 8000,
         publicPath: 'http://localhost:8000/',
-        hotOnly: true
+        hotOnly: true,
+        historyApiFallback: true
     }
 };

@@ -1,14 +1,15 @@
-# To start local mongoDB run in terminal
-mongod --config /usr/local/etc/mongod.conf
+## Camper rent app with nodejs, express, mongoDB and react hooks
 
-# To start services run
+###### To run MongoDB locally
+install mongoDB
+
+mongod --config /usr/local/etc/mongod.conf
 brew services start mongodb/brew/mongodb-community@4.0
 
-# run server 
+###### To run server and react in develop mode 
 npm run start
 
-# Then run
-# in mongoose.connect('mongodb://localhost/yourDB', { useNewUrlParser: true }); yourDB is your database name. 
+###### Then run 
 mongo
 use yourDB
 
