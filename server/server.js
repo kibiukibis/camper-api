@@ -7,7 +7,6 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/testDB', { useNewUrlParser: true });
 
 require('./middleware/appMiddleware')(app);
-// app.use(express.static('client'));
 app.use('/api', api);
 
 app.use(err());

@@ -11,6 +11,7 @@ npm run start
 
 ###### Then run 
 mongo
+######
 use yourDB
 
 
