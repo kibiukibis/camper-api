@@ -19,7 +19,7 @@
     "express": "4.17.1",
     "lodash": "3.10.0",
     "mongodb": "3.3.2",
-    "mongoose": "5.6.11",
+    "mongoose": "5.7.5",
     "morgan": "1.6.1",
     "react": "16.9.0",
     "react-datepicker": "^2.9.6",
